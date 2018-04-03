@@ -4,7 +4,6 @@ gemspec
 
 gem "rake", "~> 12.3.1"
 gem "excon"
-gem 'pry'
 
 group :test do
   gem "rspec", "~> 2.13"
