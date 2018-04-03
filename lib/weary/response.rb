@@ -1,4 +1,5 @@
 require 'rack/response'
+require 'pry'
 
 autoload :MultiJson, 'multi_json'
 
@@ -53,9 +54,9 @@ module Weary
     def parse
       raise "The response does not contain a body" if body.nil? || body.empty?
       if block_given?
-        yield body, content_type
+        yield body, @response.header['Content-Type']
       else
-        raise "Unable to parse Content-Type: #{content_type}" unless content_type =~ /json($|;.*)/
+        raise "Unable to parse Content-Type: #{@response.header['Content-Type']}" unless @response.header['Content-Type'] =~ /json($|;.*)/
         MultiJson.decode body
       end
     end
