@@ -1,5 +1,4 @@
 require 'rack/response'
-require 'pry'
 
 autoload :MultiJson, 'multi_json'
 
