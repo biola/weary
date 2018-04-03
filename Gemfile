@@ -4,10 +4,11 @@ gemspec
 
 gem "rake", "~> 12.3.1"
 gem "excon"
+gem 'pry'
 
 group :test do
-  gem "rspec", "~> 3.7"
-  gem "webmock", "~> 3.3"
+  gem "rspec", "~> 2.13"
+  gem "webmock", "~> 1.8"
 end
 
 group :doc do

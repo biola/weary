@@ -210,26 +210,26 @@ describe Weary::Request do
 
   describe "#call" do
     context "on a GET request" do
-      # it_behaves_like "a Rack application" do
-      #   subject {
-      #     described_class.new "http://github.com/api/v2/json/repos/show/mwunsch/weary" do |req|
-      #       req.adapter Class.new { include Weary::Adapter }
-      #     end
-      #   }
-      #   let(:env) { subject.env }
-      # end
+      it_behaves_like "a Rack application" do
+        subject {
+          described_class.new "http://github.com/api/v2/json/repos/show/mwunsch/weary" do |req|
+            req.adapter Class.new { include Weary::Adapter }
+          end
+        }
+        let(:env) { subject.env }
+      end
     end
 
     context "on a POST request with params" do
-      # it_behaves_like "a Rack application" do
-      #   subject {
-      #     described_class.new "https://api.github.com/gists", :POST do |req|
-      #       req.params files: { "file1.txt" => { content: "String file contents" } }
-      #       req.adapter Class.new { include Weary::Adapter }
-      #     end
-      #   }
-      #   let(:env) { subject.env }
-      # end
+      it_behaves_like "a Rack application" do
+        subject {
+          described_class.new "https://api.github.com/gists", :POST do |req|
+            req.params files: { "file1.txt" => { content: "String file contents" } }
+            req.adapter Class.new { include Weary::Adapter }
+          end
+        }
+        let(:env) { subject.env }
+      end
     end
   end
 end
